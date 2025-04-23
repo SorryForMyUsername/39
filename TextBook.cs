@@ -45,13 +45,13 @@ namespace _39
 
         public static TextBook Input()
         {
-            Console.WriteLine("Название: ");
+            Console.Write("Название: ");
             string title = Console.ReadLine();
-            Console.WriteLine("Автор: ");
+            Console.Write("Автор: ");
             string author = Console.ReadLine();
-            Console.WriteLine("Год издания: ");
+            Console.Write("Год издания: ");
             int publicationYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Предмет: ");
+            Console.Write("Предмет: ");
             string subject = Console.ReadLine();
             return new TextBook(title, author, publicationYear, subject);
         }

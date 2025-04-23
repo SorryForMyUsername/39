@@ -18,49 +18,52 @@ namespace _39
                     "1. Добавить художественную книгу\n" +
                     "2. Добавить научную книгу\n" +
                     "3. Добавить учебник\n" +
-                    "----------------------------------\n" +
+                    "   ---\n" +
                     "4. Удалить художественную книгу\n" +
                     "5. Удалить научную книгу\n" +
                     "6. Удалить учебник\n" +
-                    "----------------------------------\n" +
+                    "   ---\n" +
                     "7. Вывести художественные книги\n" +
                     "8. Вывести научные книги\n" + 
                     "9. Вывести учебники\n" +
                     "0. Вывести все книги\n" +
-                    "----------------------------------\n" +
+                    "   ---\n" +
                     "В. Выход\n");
 
-                char keyChar = Console.ReadKey(true).KeyChar;
-                if(keyChar == 'В' || keyChar == 'в')
+                while (true)
                 {
+                    char keyChar = Console.ReadKey(true).KeyChar;
+                    if (keyChar == 'В' || keyChar == 'в')
+                    {
+                        return;
+                    }
+
+                    int choice = keyChar - 48;
+
+                    switch (choice)
+                    {
+                        case 1: library.AddFictionBook(FictionBook.Input()); break;
+                        case 2: library.AddNonFictionBook(NonFictionBook.Input()); break;
+                        case 3: library.AddTextBook(TextBook.Input()); break;
+                        case 4: library.DeleteFictionBook(); break;
+                        case 5: library.DeleteNonFictionBook(); break;
+                        case 6: library.DeleteTextBook(); break;
+                        case 7: library.OutputFictionBooks(); Wait(); break;
+                        case 8: library.OutputNonFictionBooks(); Wait(); break;
+                        case 9: library.OutputTextBooks(); Wait(); break;
+                        case 0: library.OutputBooks(); Wait(); break;
+                        default: continue;
+                    }
+                    Console.Clear();
                     break;
                 }
-
-                int choice = keyChar - 48;
-
-                switch (choice)
-                {
-                    case 1: 
-                        library.AddFictionBook(FictionBook.Input());
-                        Console.WriteLine();
-                        break;
-                    case 2: 
-                        library.AddNonFictionBook(NonFictionBook.Input());
-                        Console.WriteLine();
-                        break;
-                    case 3: 
-                        library.AddTextBook(TextBook.Input());
-                        Console.WriteLine();
-                        break;
-                    case 4: break;
-                    case 5: break;
-                    case 6: break;
-                    case 7: library.OutputFictionBooks(); break;
-                    case 8: library.OutputNonFictionBooks(); break;
-                    case 9: library.OutputTextBooks(); break;
-                    case 0: library.OutputBooks(); break;
-                }
             }
+        }
+
+        static void Wait()
+        {
+            Console.WriteLine("Для продолжения нажмите любую клавишу");
+            Console.ReadKey(true);
         }
     }
 }

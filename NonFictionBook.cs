@@ -45,13 +45,13 @@ namespace _39
 
         public static NonFictionBook Input()
         {
-            Console.WriteLine("Название: ");
+            Console.Write("Название: ");
             string title = Console.ReadLine();
-            Console.WriteLine("Автор: ");
+            Console.Write("Автор: ");
             string author = Console.ReadLine();
-            Console.WriteLine("Год издания: ");
+            Console.Write("Год издания: ");
             int publicationYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Тема: ");
+            Console.Write("Тема: ");
             string theme = Console.ReadLine();
             return new NonFictionBook(title, author, publicationYear, theme);
         }

@@ -45,13 +45,13 @@ namespace _39
 
         public static FictionBook Input()
         {
-            Console.WriteLine("Название: ");
+            Console.Write("Название: ");
             string title = Console.ReadLine();
-            Console.WriteLine("Автор: ");
+            Console.Write("Автор: ");
             string author = Console.ReadLine();
-            Console.WriteLine("Год издания: ");
+            Console.Write("Год издания: ");
             int publicationYear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Жанр: ");
+            Console.Write("Жанр: ");
             string genre = Console.ReadLine();
             return new FictionBook(title, author, publicationYear, genre);
         }
