@@ -16,23 +16,51 @@ namespace _39
         public string Title
         {
             get { return title; }
-            set { title = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    title = "Неизвестно";
+                }
+                title = value;
+            }
         }
         public string Author
         {
             get { return author; }
-            set { author = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    author = "Неизвестен";
+                }
+                author = value;
+            }
         }
         public int PublicationYear
         {
             get { return publicationYear; }
-            set { publicationYear = value; }
+            set
+            {
+                if (value < 1000 || value > DateTime.Now.Year)
+                {
+                    publicationYear = DateTime.Now.Year;
+                }
+                publicationYear = value;
+            }
         }
 
         public string Theme
         {
             get { return theme; }
-            set { theme = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    author = "Неизвестно";
+                }
+                author = value;
+            }
         }
 
         public NonFictionBook(string title, string author, int publicationYear, string theme)
